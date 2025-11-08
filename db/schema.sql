@@ -13,7 +13,7 @@ CREATE TABLE products (
   id serial PRIMARY KEY,
   title text NOT NULL,
   description text NOT NULL,
-  price numeric(2) NOT NULL
+  price numeric(10,2) NOT NULL
 );
 
 CREATE TABLE orders (

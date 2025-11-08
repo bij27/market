@@ -1,14 +1,12 @@
-const express = require("express");
+import express from "express";
 const app = express();
-
 app.use(express.json());
-
-const usersRouter = require("./api/users");
-const productRouter = require("./api/products");
-const ordersRouter = require("./api/orders");
-
+import getUserFromToken from "./middleware/getUserFromToken.js";
+import usersRouter from "./api/users.js";
+import productRouter from "./api/products.js";
+import ordersRouter from "./api/orders.js";
+app.use(getUserFromToken);
 app.use("/users", usersRouter);
 app.use("/products", productRouter);
 app.use("/orders", ordersRouter);
-
-module.exports = app;
+export default app;
